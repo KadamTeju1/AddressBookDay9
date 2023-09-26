@@ -1,63 +1,83 @@
 package welcometoaddressbook;
 import java.util.ArrayList;
 class Contact{
-    private String firstName;
-    private String lastName;
-    private String address;
-    private int zipNo;
-    private int phoneNumber;
-    private String email;
-    private static ArrayList<Contact> list = new ArrayList<Contact>();
+        private String firstName;
+        private String lastName;
+        private String address;
+        private int zipNo;
+        private int phoneNumber;
+        private String email;
+        private static ArrayList<Contact> list = new ArrayList<Contact>();
 
 
-    public Contact(String firstName, String lastName, String address, int zipNo, int phoneNumber, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.zipNo = zipNo;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-    }
+        public Contact(String firstName, String lastName, String address, int zipNo, int phoneNumber, String email) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.zipNo = zipNo;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
 
-    public String getFirstName() {
-        return firstName;
-    }
+        public String getFirstName() {
+            return firstName;
+        }
 
-    public String getLastName() {
-        return lastName;
-    }
+        public String getLastName() {
+            return lastName;
+        }
 
-    public String getAddress() {
-        return address;
-    }
+        public String getAddress() {
+            return address;
+        }
 
-    public int getZipNo() {
-        return zipNo;
-    }
+        public int getZipNo() {
+            return zipNo;
+        }
 
-    public int getPhoneNumber() {
-        return phoneNumber;
-    }
+        public int getPhoneNumber() {
+            return phoneNumber;
+        }
 
-    public String getEmail() {
-        return email;
-    }
-}
-public class AddressBook
-{
-    public static void main(String[] args)
-    {
+        public String getEmail() {
+            return email;
+        }
+        public static void addContact(Contact add){
+            list.add(add);
+        }
 
+        public static  ArrayList<Contact> getContact(){
+            return list;
+        }
 
-        System.out.printf("Hello and welcome!");
-
-
-        for (int i = 1; i <= 5; i++)
-        {
-
-
-            System.out.println("i = " + i);
+        @Override
+        public String toString() {
+            return "Contact{" +
+                    "firstName='" + firstName + '\'' +
+                    ", lastName='" + lastName + '\'' +
+                    ", address='" + address + '\'' +
+                    ", zipNo=" + zipNo +
+                    ", phoneNumber=" + phoneNumber +
+                    ", email='" + email + '\'' +
+                    '}';
         }
     }
+    public class AddressBook {
+        public static void main(String[] args) {
+            Contact c=new Contact("Tejshree","Kadam","Phaltan",415523,12345,"tejshreeshinde88@gmail.com");
+            Contact c1=new Contact("Kunal","Wnnare","Umerkhed",400016,3546,"kunal@gmail.com");
+            Contact c2=new Contact("Avinash","Shende","Darwha",400034,18,"avinash@gmail.com");
+            Contact c3=new Contact("Chotey","Khadse","Amravati",400045,45,"kunal@gmail.com");
 
+            Contact.addContact(c);
+            Contact.addContact(c1);
+            Contact.addContact(c2);
+            Contact.addContact(c3);
+
+            ArrayList<Contact> list=Contact.getContact();
+            //System.out.println(Contact.getContact());
+            for (int i=0;i<list.size();i++){
+                System.out.println(list.get(i));
+            }
+        }
 }
