@@ -71,6 +71,9 @@ class Contact{
     public static void addContact(Contact add){
         list.add(add);
     }
+    public static void removeContact(Contact remove,String firstName){
+        list.remove(remove);
+    }
 
     public static  ArrayList<Contact> getContact(){
         return list;
@@ -90,10 +93,10 @@ class Contact{
 }
 public class AddressBook {
     public static void main(String[] args) {
-        Contact c = new Contact("Shilpa", "Bhonde", "Yavatmal", 400028, 12345, "shilpa@gmail.com");
-        Contact c1 = new Contact("Kunal", "Wnnare", "Umerkhed", 400016, 3546, "kunal@gmail.com");
-        Contact c2 = new Contact("Avinash", "Shende", "Darwha", 400034, 18, "avinash@gmail.com");
-        Contact c3 = new Contact("Chotey", "Khadse", "Amravati", 400045, 45, "kunal@gmail.com");
+        Contact c=new Contact("Shilpa","Bhonde","Yavatmal",400028,12345,"shilpa@gmail.com");
+        Contact c1=new Contact("Kunal","Wnnare","Umerkhed",400016,3546,"kunal@gmail.com");
+        Contact c2=new Contact("Avinash","Shende","Darwha",400034,18,"avinash@gmail.com");
+        Contact c3=new Contact("Chotey","Khadse","Amravati",400045,45,"kunal@gmail.com");
 
         Contact.addContact(c);
         Contact.addContact(c1);
@@ -102,11 +105,16 @@ public class AddressBook {
         c.setFirstName("Shilpa");
         System.out.println(c.getFirstName());
 
-        ArrayList<Contact> list = Contact.getContact();
+        ArrayList<Contact> list=Contact.getContact();
         //System.out.println(Contact.getContact());
-        for (int i = 0; i < list.size(); i++) {
+        for (int i=0;i<list.size();i++){
+            System.out.println(list.get(i));
+        }
+
+        System.out.println("\n After removing");
+        Contact.removeContact(c3,"Shilpa");
+        for (int i=0;i<list.size();i++){
             System.out.println(list.get(i));
         }
     }
-
     }
